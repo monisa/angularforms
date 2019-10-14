@@ -1,0 +1,37 @@
+<h3>Reactive Form</h3>
+<form id="contactForm" [formGroup]="form" (ngSubmit)="submit()">
+  <p>
+    <input placeholder="firstname" formControlName="firstname" class="form-control" name="firstname">
+  </p>
+  <br>
+  <p>
+    <input placeholder="password" formControlName="password" type="password" class="form-control" name="password">
+  </p>
+  <br>
+  <p>
+    <input placeholder="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"
+      name="confirmPassword">
+  </p>
+  <br>
+  <div class="alert alert-danger" *ngIf="form.controls.confirmPassword.errors?.MutchPassword">Password not match</div>
+  <p>
+    <input placeholder="email" formControlName="email" class="form-control" name="email">
+  </p>
+  <br>
+  <p>
+    <textarea rows="4" cols="50" placeholder="message" formControlName="message" class="form-control"
+      name="message"></textarea>
+  </p>
+  <br>
+  <button id="btnSubmit" routerLink="/details" routerLinkActive="active" type="submit" color="primary">Submit</button>
+</form>
+
+
+
+<strong>{{form.value.firstname}} </strong>
+<br>
+<strong>{{form.value.lastname}} </strong>
+<br>
+<strong>{{form.value.email}} </strong>
+<br>
+<strong>{{form.value.message}} </strong>

@@ -1,0 +1,54 @@
+<div [hidden]="submitted">
+  <h3>Template Form</h3>
+  <form novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="row">
+      <div class="col-xs-3">
+        <input placeholder="firstname" class="form-control" name="firstname" ngModel required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+        <input placeholder="lastname" class="form-control" name="lastname" ngModel required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+        <input placeholder="email" class="form-control" name="email" ngModel required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+        <textarea rows="4" cols="50" placeholder="message" class="form-control" name="message" ngModel
+          required></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+        <button type="submit" [disabled]="f.invalid">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">Frist Name</div>
+    <div class="col-xs-9">{{f.value.firstname}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Last Name</div>
+    <div class="col-xs-9">{{f.value.lastname}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Email</div>
+    <div class="col-xs-9">{{f.value.email}} </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Message</div>
+    <div class="col-xs-9">{{f.value.message}} </div>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>
